@@ -61,15 +61,12 @@ function cekMaxVertical($dataset)
 function cekMaxDiagonalKanan($dataset)
 {
     $maxProduct['val'] = 0;
+    $jumlahDiagonal    = 1;
     //cek setengah diagonal awal
     for ($baris = 3; $baris < 20; $baris++) {
-        $jumlahDiagonal = 1;
         for ($diagonal = 0; $diagonal < $jumlahDiagonal; $diagonal++) {
             $product = intval($dataset[($baris - $diagonal)][($diagonal)]) * intval($dataset[($baris - $diagonal - 1)][($diagonal + 1)]) * intval($dataset[($baris - $diagonal - 2)][($diagonal + 2)]) * intval($dataset[($baris - $diagonal - 3)][($diagonal + 3)]);
             $text    = intval($dataset[($baris - $diagonal)][($diagonal)]) . '*' . intval($dataset[($baris - $diagonal - 1)][($diagonal + 1)]) . '*' . intval($dataset[($baris - $diagonal - 2)][($diagonal + 2)]) . '*' . intval($dataset[($baris - $diagonal - 3)][($diagonal + 3)]);
-            // echo "<pre>";
-            // print_r($product);
-            // echo "</pre>";
 
             if ($product > $maxProduct['val']) {
                 $maxProduct['val']  = $product;
@@ -80,14 +77,11 @@ function cekMaxDiagonalKanan($dataset)
     }
 
     //cek setengah diagonal sisanya
+    $jumlahDiagonal = 1;
     for ($baris = (sizeof($dataset) - 4); $baris > 0; $baris--) {
-        $jumlahDiagonal = 1;
         for ($diagonal = 0; $diagonal < $jumlahDiagonal; $diagonal++) {
             $product = intval($dataset[($baris + $diagonal)][($baris - $diagonal + 3)]) * intval($dataset[($baris + $diagonal + 1)][($baris - $diagonal + 2)]) * intval($dataset[($baris + $diagonal + 2)][($baris - $diagonal + 1)]) * intval($dataset[($baris + $diagonal + 3)][($baris - $diagonal)]);
             $text    = intval($dataset[($baris + $diagonal)][($baris - $diagonal + 3)]) . '*' . intval($dataset[($baris + $diagonal + 1)][($baris - $diagonal + 2)]) . '*' . intval($dataset[($baris + $diagonal + 2)][($baris - $diagonal + 1)]) . '*' . intval($dataset[($baris + $diagonal + 3)][($baris - $diagonal)]);
-            // echo "<pre>";
-            // print_r($product);
-            // echo "</pre>";
 
             if ($product > $maxProduct['val']) {
                 $maxProduct['val']  = $product;
@@ -103,9 +97,9 @@ function cekMaxDiagonalKanan($dataset)
 function cekDiagonalKiri($dataset)
 {
     $maxProduct['val'] = 0;
+    $jumlahDiagonal    = 1;
     // cek setengah diagonal kiri
     for ($baris = (sizeof($dataset) - 4); $baris >= 0; $baris--) {
-        $jumlahDiagonal = 1;
         for ($diagonal = 0; $diagonal < $jumlahDiagonal; $diagonal++) {
             $product = intval($dataset[($baris + $diagonal)][($diagonal)]) * intval($dataset[($baris + $diagonal + 1)][($diagonal + 1)]) * intval($dataset[($baris + $diagonal + 2)][($diagonal + 2)]) * intval($dataset[($baris + $diagonal + 3)][($diagonal + 3)]);
             $text    = intval($dataset[($baris + $diagonal)][($diagonal)]) . '*' . intval($dataset[($baris + $diagonal + 1)][($diagonal + 1)]) . '*' . intval($dataset[($baris + $diagonal + 2)][($diagonal + 2)]) . '*' . intval($dataset[($baris + $diagonal + 3)][($diagonal + 3)]);
@@ -119,8 +113,8 @@ function cekDiagonalKiri($dataset)
     }
 
     // cek setengah diagonal kiri sisanya
+    $jumlahDiagonal = 1;
     for ($baris = 3; $baris < (sizeof($dataset) - 1); $baris++) {
-        $jumlahDiagonal = 1;
         for ($diagonal = 0; $diagonal < $jumlahDiagonal; $diagonal++) {
             $product = intval($dataset[($baris - $diagonal)][(sizeof($dataset) - 1 - $diagonal)]) * intval($dataset[($baris - 1 - $diagonal)][((sizeof($dataset) - 1) - 1 - $diagonal)]) * intval($dataset[($baris - 2 - $diagonal)][((sizeof($dataset) - 1) - 2 - $diagonal)]) * intval($dataset[($baris - 3 - $diagonal)][((sizeof($dataset) - 1) - 3 - $diagonal)]);
             $text    = intval($dataset[($baris - $diagonal)][(sizeof($dataset) - 1 - $diagonal)]) . '*' . intval($dataset[($baris - 1 - $diagonal)][((sizeof($dataset) - 1) - 1 - $diagonal)]) . '*' . intval($dataset[($baris - 2 - $diagonal)][((sizeof($dataset) - 1) - 2 - $diagonal)]) . '*' . intval($dataset[($baris - 3 - $diagonal)][((sizeof($dataset) - 1) - 3 - $diagonal)]);
